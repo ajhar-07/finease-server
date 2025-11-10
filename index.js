@@ -57,7 +57,7 @@ app.get('/add-transaction',  async(req,res)=>{
 app.get('/transactions/:id', async(req,res)=>{
   const id=req.params.id
   const quary={_id: new ObjectId(id)}
-  const result= await TransactionCollection.findOne(quary)
+  const result= await TransactionCollection.findOne(quary).sort({amount:1})
   res.send(result)
 })
 
