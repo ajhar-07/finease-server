@@ -31,11 +31,16 @@ const TransactionCollection=db.collection('Transactions')
 
     
 // add transaction API
+
+//API for post
 app.post('/add-transaction', async(req,res)=>{
   const NewTransaction=req.body
   const result=await TransactionCollection.insertOne(NewTransaction).sort({amount:-1})
   res.send(result)
 })
+
+
+//API for get
 
 app.get('/add-transaction',  async(req,res)=>{
   const email=req.query.email
@@ -48,7 +53,7 @@ app.get('/add-transaction',  async(req,res)=>{
   res.send(result)
 })
 
-
+//API get by ID
 app.get('/transactions/:id', async(req,res)=>{
   const id=req.params.id
   const quary={_id: new ObjectId(id)}
@@ -56,6 +61,8 @@ app.get('/transactions/:id', async(req,res)=>{
   res.send(result)
 })
 
+
+//Delete Data by ID
 app.delete('/transactions/:id', async(req,res)=>{
   const id=req.params.id
   const quary={_id:new ObjectId(id)}
@@ -63,7 +70,7 @@ app.delete('/transactions/:id', async(req,res)=>{
   res.send(result)
 })
 
-
+//Edit Data
 app.patch('/transactions/:id', async (req,res)=>{
        const id=req.params.id
        const UpdateTransaction=req.body
