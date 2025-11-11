@@ -27,7 +27,6 @@ async function run() {
     await client.connect();
     const db=client.db('FinEaseDB')
 const TransactionCollection=db.collection('Transactions')
-const MoneyCollection =db.collection("Money");
 
 
     
