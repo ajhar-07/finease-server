@@ -2,9 +2,7 @@ const express = require('express')
 require('dotenv').config()
 const cors=require('cors')
 const port=process.env.PORT || 3000;
-// const admin = require("firebase-admin");
 
-// const serviceAccount = require("");
 
 const app=express()
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
@@ -25,14 +23,12 @@ const client = new MongoClient(uri, {
 });
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
+  
     await client.connect();
     const db=client.db('FinEaseDB')
 const TransactionCollection=db.collection('Transactions')
 const MoneyCollection =db.collection("Money");
 
-// const bidCollection=db.collection('bids')
-// const usersCollection = db.collection('users')
 
     
 // add transaction API
