@@ -35,7 +35,7 @@ const TransactionCollection=db.collection('Transactions')
 //API for post
 app.post('/add-transaction', async(req,res)=>{
   const NewTransaction=req.body
-  const result=await TransactionCollection.insertOne(NewTransaction).sort({amount:-1})
+  const result=await TransactionCollection.insertOne(NewTransaction)
   res.send(result)
 })
 
