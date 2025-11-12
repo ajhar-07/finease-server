@@ -24,7 +24,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
   
-    await client.connect();
+    // await client.connect();
     const db=client.db('FinEaseDB')
 const TransactionCollection=db.collection('Transactions')
 
@@ -94,7 +94,7 @@ app.patch('/transactions/:id', async (req,res)=>{
 
 
 
-    await client.db("admin").command({ ping: 1 });
+   // await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
     
